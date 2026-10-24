@@ -1,0 +1,741 @@
+/* ========================================
+   RESET DAN PENGATURAN DASAR
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #079b76;
+    --primary-dark: #057b5e;
+    --primary-light: #e5f7f0;
+    --text-dark: #193b35;
+    --text-muted: #82928d;
+    --border: #e4ece8;
+    --white: #ffffff;
+    --background: #f4faf7;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: var(--text-dark);
+}
+
+
+/* ========================================
+   CONTAINER UTAMA
+======================================== */
+
+.login-container {
+    width: 100%;
+    max-width: 1250px;
+    min-height: 760px;
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 20px 70px rgba(20, 90, 67, 0.10);
+}
+
+
+/* ========================================
+   BAGIAN KIRI
+======================================== */
+
+.left-section {
+    position: relative;
+    padding: 40px 50px 30px;
+    background: linear-gradient(
+        145deg,
+        #e8f8f1 0%,
+        #f5fbf8 60%,
+        #e1f4ec 100%
+    );
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    position: relative;
+    z-index: 2;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    box-shadow: 0 7px 18px rgba(7, 155, 118, 0.20);
+}
+
+.brand-text h2 {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-dark);
+}
+
+.brand-text p {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+
+/* ========================================
+   ILUSTRASI
+======================================== */
+
+.illustration {
+    position: relative;
+    height: 280px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doctor-image {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 45px rgba(28, 102, 76, 0.13);
+    position: relative;
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle-one {
+    width: 310px;
+    height: 310px;
+    background: rgba(7, 155, 118, 0.07);
+}
+
+.circle-two {
+    width: 350px;
+    height: 350px;
+    border: 1px dashed rgba(7, 155, 118, 0.25);
+}
+
+
+/* KARTU MELAYANG */
+
+.medical-card,
+.floating-card {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 14px 16px;
+    border-radius: 13px;
+    box-shadow: 0 10px 30px rgba(20, 90, 67, 0.10);
+}
+
+.medical-card {
+    top: 25px;
+    left: -5px;
+}
+
+.floating-card {
+    bottom: 18px;
+    right: -5px;
+}
+
+.medical-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.check-icon {
+    width: 35px;
+    height: 35px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.medical-card strong,
+.floating-card strong {
+    display: block;
+    font-size: 11px;
+    color: var(--text-dark);
+}
+
+.medical-card p,
+.floating-card p {
+    margin-top: 3px;
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+
+/* ========================================
+   TEKS BAGIAN KIRI
+======================================== */
+
+.left-content {
+    margin-top: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.left-content h1 {
+    font-size: 31px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.left-content > p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #728780;
+    max-width: 430px;
+}
+
+
+/* FITUR */
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: #49665c;
+}
+
+.feature-item span {
+    width: 20px;
+    height: 20px;
+    background: #d4f2e5;
+    color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* FOOTER KIRI */
+
+.left-footer {
+    margin-top: auto;
+    padding-top: 25px;
+    font-size: 10px;
+    color: #7a9589;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.left-footer span {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+
+/* ========================================
+   BAGIAN KANAN
+======================================== */
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 55px 25px;
+    background: var(--white);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 410px;
+}
+
+
+/* BRAND MOBILE */
+
+.mobile-brand {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.mobile-brand h2 {
+    font-size: 20px;
+    color: var(--primary-dark);
+}
+
+.mobile-brand p {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+
+/* IKON LOGIN */
+
+.welcome-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.welcome-icon span {
+    font-size: 32px;
+    color: var(--primary);
+}
+
+
+/* JUDUL LOGIN */
+
+.login-card > h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.login-description {
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+
+/* ========================================
+   FORM LOGIN
+======================================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #34544a;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    height: 54px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 12px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(7, 155, 118, 0.08);
+}
+
+.input-icon {
+    font-size: 19px;
+    color: #91aaa0;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--text-dark);
+}
+
+.input-wrapper input::placeholder {
+    color: #b1beb8;
+}
+
+
+/* TOMBOL TAMPILKAN PASSWORD */
+
+.toggle-password {
+    border: none;
+    background: transparent;
+    color: #8ca39a;
+    cursor: pointer;
+    font-size: 19px;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: var(--primary);
+}
+
+
+/* ========================================
+   OPSI LOGIN
+======================================== */
+
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: -3px;
+    margin-bottom: 27px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    color: #6e8279;
+}
+
+.remember-me input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   TOMBOL LOGIN
+======================================== */
+
+.login-button {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(
+        135deg,
+        #0aab80,
+        #078766
+    );
+    color: var(--white);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(7, 155, 118, 0.20);
+    transition: all 0.3s ease;
+}
+
+.login-button .arrow {
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+}
+
+.login-button:hover {
+    background: linear-gradient(
+        135deg,
+        #078766,
+        #056c51
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(7, 155, 118, 0.25);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   KEAMANAN
+======================================== */
+
+.security-info {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.security-icon {
+    width: 20px;
+    height: 20px;
+    background: #e1f7ed;
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.security-info p {
+    font-size: 10px;
+    color: #84968e;
+}
+
+
+/* ========================================
+   FOOTER LOGIN
+======================================== */
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background: #edf1ee;
+    margin: 27px 0 22px;
+}
+
+.help-text {
+    text-align: center;
+    font-size: 10px;
+    color: #84968e;
+    line-height: 2;
+}
+
+.help-text a {
+    display: block;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* FOOTER KANAN */
+
+.right-footer {
+    width: 100%;
+    margin-top: 45px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 2;
+    color: #a0afa8;
+}
+
+.footer-note {
+    color: #8b9f95;
+}
+
+
+/* ========================================
+   RESPONSIVE TABLET
+======================================== */
+
+@media screen and (max-width: 1000px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .login-container {
+        max-width: 800px;
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .left-section {
+        padding: 35px 30px 25px;
+    }
+
+    .right-section {
+        padding: 40px 35px 25px;
+    }
+
+    .doctor-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .circle-one {
+        width: 260px;
+        height: 260px;
+    }
+
+    .circle-two {
+        width: 290px;
+        height: 290px;
+    }
+
+    .left-content h1 {
+        font-size: 27px;
+    }
+
+    .medical-card,
+    .floating-card {
+        padding: 10px;
+    }
+
+    .medical-card {
+        left: -8px;
+    }
+
+    .floating-card {
+        right: -8px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE MOBILE
+======================================== */
+
+@media screen and (max-width: 700px) {
+
+    body {
+        padding: 15px;
+        align-items: flex-start;
+        background: #f0f8f4;
+    }
+
+    .login-container {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+        min-height: auto;
+        border-radius: 20px;
+    }
+
+    .left-section {
+        display: none;
+    }
+
+    .right-section {
+        padding: 35px 25px 25px;
+    }
+
+    .login-card {
+        max-width: 100%;
+    }
+
+    .mobile-brand {
+        display: flex;
+    }
+
+    .welcome-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 18px;
+    }
+
+    .login-card > h2 {
+        font-size: 25px;
+    }
+
+    .login-description {
+        font-size: 11px;
+        margin-bottom: 27px;
+    }
+
+    .right-footer {
+        margin-top: 35px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE MOBILE KECIL
+======================================== */
+
+@media screen and (max-width: 380px) {
+
+    .right-section {
+        padding: 25px 18px 20px;
+    }
+
+    .login-card > h2 {
+        font-size: 23px;
+    }
+
+    .form-options {
+        align-items: flex-start;
+    }
+
+    .remember-me,
+    .forgot-password {
+        font-size: 10px;
+    }
+
+    .mobile-brand {
+        margin-bottom: 28px;
+    }
+}
