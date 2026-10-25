@@ -1,0 +1,172 @@
+/* ==============================
+   HALAMAN TAMBAH PASIEN
+============================== */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.page-heading h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.page-heading p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.breadcrumb-custom {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.breadcrumb-custom a {
+    text-decoration: none;
+    color: #2563eb;
+}
+
+.breadcrumb-custom i {
+    font-size: 10px;
+    color: #94a3b8;
+}
+
+.patient-form-card {
+    background: #fff;
+    border: 1px solid #e8edf3;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+}
+
+.patient-form-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 24px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.form-header-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.patient-form-header h5 {
+    margin: 0 0 5px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.patient-form-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.patient-form-card form {
+    padding: 25px;
+}
+
+.form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.form-section-title i {
+    color: #2563eb;
+}
+
+.patient-form-card .form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.patient-form-card .form-control,
+.patient-form-card .form-select {
+    min-height: 44px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #334155;
+    box-shadow: none;
+}
+
+.patient-form-card textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.patient-form-card .form-control:focus,
+.patient-form-card .form-select:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.patient-form-card .input-group-text {
+    background: #f8fafc;
+    border-color: #dbe2ea;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.patient-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid #edf0f5;
+    margin-top: 28px;
+    padding-top: 22px;
+}
+
+.patient-form-footer .btn {
+    min-height: 42px;
+    padding: 10px 17px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .patient-form-header,
+    .patient-form-card form {
+        padding: 18px;
+    }
+
+    .patient-form-footer {
+        flex-direction: column;
+    }
+
+    .patient-form-footer .btn {
+        width: 100%;
+    }
+}

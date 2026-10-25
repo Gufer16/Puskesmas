@@ -25,7 +25,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-5">
+            <div class="col-lg-5">
 
                 <div class="card shadow">
 

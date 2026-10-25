@@ -9,6 +9,7 @@ class dokter extends Model
     protected $table = 'dokters';
 
     protected $fillable = [
+        'nama_dokter',
         'sip',
         'jenis_kelamin',
         'spesialis',

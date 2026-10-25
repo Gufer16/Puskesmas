@@ -1,0 +1,227 @@
+/* ==========================
+   DATA PASIEN
+========================== */
+
+.patient-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 23px;
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid #e9edf5;
+    border-radius: 15px;
+    transition: all 0.25s ease;
+}
+
+.patient-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+}
+
+.patient-stat-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+
+.patient-stat-icon.blue {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.patient-stat-icon.green {
+    color: #059669;
+    background: #ecfdf5;
+}
+
+.patient-stat-icon.purple {
+    color: #7c3aed;
+    background: #f5f3ff;
+}
+
+.patient-stat-card p {
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.patient-stat-card h4 {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #1e293b;
+}
+
+.patient-stat-card span {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+/* KARTU TABEL */
+
+.patient-table-card {
+    border: 1px solid #e9edf5;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.patient-card-header {
+    display: flex;
+    align-items: center;
+    padding: 22px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.patient-card-header h6 {
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.patient-filter {
+    padding: 20px 24px;
+}
+
+.patient-search {
+    position: relative;
+    width: 100%;
+}
+
+.patient-search i {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.patient-search .form-control {
+    height: 42px;
+    padding-left: 39px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    font-size: 12px;
+    box-shadow: none;
+}
+
+.patient-search .form-control:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.patient-filter .btn {
+    height: 42px;
+    padding: 0 18px;
+    font-size: 12px;
+    border-radius: 9px;
+}
+
+/* TABEL PASIEN */
+
+.patient-table {
+    min-width: 950px;
+}
+
+.patient-table thead th {
+    padding: 15px 18px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 700;
+    border-top: 1px solid #edf0f5;
+    border-bottom: 1px solid #edf0f5;
+    white-space: nowrap;
+}
+
+.patient-table tbody td {
+    padding: 16px 18px;
+    color: #475569;
+    font-size: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.patient-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.patient-table tbody tr:hover td {
+    background: #fafcff;
+}
+
+/* DATA KOSONG */
+
+.empty-patient i {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #cbd5e1;
+    font-size: 42px;
+}
+
+.empty-patient h6 {
+    margin-bottom: 8px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.empty-patient p {
+    margin-bottom: 0;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* FOOTER TABEL */
+
+.patient-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 18px 24px;
+    border-top: 1px solid #edf0f5;
+}
+
+.patient-pagination .btn {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .patient-stat-card {
+        padding: 18px;
+    }
+
+    .patient-card-header,
+    .patient-filter {
+        padding: 17px;
+    }
+
+    .patient-search {
+        max-width: none;
+        flex: 1 1 100%;
+    }
+
+    .patient-filter > div {
+        width: 100%;
+    }
+
+    .patient-pagination {
+        padding: 17px;
+    }
+}

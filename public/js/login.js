@@ -11,11 +11,3 @@ togglePassword.addEventListener("click", function() {
         isPassword ? "Sembunyikan password" : "Tampilkan password"
     );
 });
-
-document.getElementById("loginForm").addEventListener(
-    "submit",
-    function(event) {
-        event.preventDefault();
-        alert("Tampilan login berhasil! Hubungkan form ke backend untuk autentikasi.");
-    }
-);
