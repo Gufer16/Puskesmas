@@ -51,8 +51,8 @@
 
             <div class="welcome-card">
                 <div>
-                    <span class="welcome-label">SISTEM INFORMASI KESEHATAN</span>
-                    <h2>Selamat Datang! 👋</h2>
+                    <span class="">Selamat Datang 👋</span>
+                    <h2>SISTEM INFORMASI & PENDATAAN PUSKESMAS</h2>
                     <p>Kelola data pelayanan kesehatan dengan mudah dan efisien.</p>
                 </div>
 

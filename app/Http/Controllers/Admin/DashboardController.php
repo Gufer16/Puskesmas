@@ -17,6 +17,10 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Akses ditolak.');
+        }
+
         $tanggal = today();
         $data = [
             'pasien'      => pasien::count(),

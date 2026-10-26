@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DokterController;
 use App\Http\Controllers\Admin\PasienController;
+use App\Http\Controllers\Admin\PendaftaranController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // ----- DOKTER -----
     Route::resource('/admin/dokter', DokterController::class);
+
+    // ----- PENDAFTARAN -----
+    Route::resource('/admin/pendaftaran', PendaftaranController::class);
 });

@@ -33,7 +33,7 @@
             <span>Data Dokter</span>
         </a>
 
-        <a href="/pendaftaran" class="menu-item">
+        <a href="{{ route('pendaftaran.index') }}" class="menu-item">
             <i class="fa-solid fa-calendar-check"></i>
             <span>Pendaftaran</span>
         </a>
@@ -65,26 +65,11 @@
             <span>Laporan</span>
         </a>
 
-    </div>
+        <p class="menu-label mt-4">PROFILE</p>
 
-    <!-- User Profile -->
-    <div class="sidebar-footer">
-
-        <a href="" style="text-decoration: none">
-
-            <div class="user-profile">
-                <div class="user-avatar">
-                    <i class="fa-solid fa-user-gear"></i>
-                </div>
-
-                <div class="user-info">
-                    <h6 class="text-dark">{{ Auth::user()->nama }}</h6>
-                    <span class="text-dark">Admin Puskesmas</span>
-                </div>
-
-                <i class="fa-solid fa-ellipsis-vertical user-more"></i>
-            </div>
-
+        <a href="/profile" class="menu-item">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>Akun</span>
         </a>
 
         <!-- Logout -->
@@ -95,6 +80,24 @@
                 <span>Keluar</span>
             </button>
         </form>
+
+    </div>
+
+    <!-- User Profile -->
+    <div class="sidebar-footer">
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+
+            <div class="user-info">
+                <h6 class="text-dark">{{ Auth::user()->nama }}</h6>
+                <span class="text-dark">Admin Puskesmas</span>
+            </div>
+
+            <i class="fa-solid fa-ellipsis-vertical user-more"></i>
+        </div>
 
     </div>
 

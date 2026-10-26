@@ -72,7 +72,7 @@
                     <div class="patient-stat-card">
 
                         <div class="patient-stat-icon blue">
-                            <i class="fa-solid fa-hospital-user"></i>
+                            <i class="fa-solid fa-user-doctor"></i>
                         </div>
 
                         <div>
@@ -134,7 +134,7 @@
                 </div>
 
                 {{-- Pencarian dan Tombol Filter --}}
-                <div class="patient-filter">
+                <div class="patient-filter d-flex">
 
                     <div class="patient-search w-100">
 
@@ -156,6 +156,10 @@
                         </form>
 
                     </div>
+
+                    <a href="{{ route('dokter.index') }}" class="btn btn-danger btn-sm ms-1">
+                        <i class="fa-solid fa-arrow-rotate-left mt-3"></i>
+                    </a>
 
                 </div>
 
@@ -189,8 +193,8 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <img src="{{ asset('storage/' . $dokter->foto_dokter) }}" width="70"
-                                            height="70" class="rounded-4 shadow">
+                                        <img src="{{ asset('storage/' . $dokter->foto_dokter) }}" width="60"
+                                            height="60" class="rounded-4 shadow">
                                     </td>
                                     <td>{{ $dokter->nama_dokter }}</td>
                                     <td>{{ $dokter->sip }}</td>

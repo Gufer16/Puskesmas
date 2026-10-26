@@ -134,7 +134,7 @@
                 </div>
 
                 {{-- Pencarian dan Tombol Filter --}}
-                <div class="patient-filter">
+                <div class="patient-filter d-flex">
 
                     <div class="patient-search w-100">
 
@@ -156,6 +156,10 @@
                         </form>
 
                     </div>
+
+                    <a href="{{ route('pasien.index') }}" class="btn btn-danger btn-sm ms-1">
+                        <i class="fa-solid fa-arrow-rotate-left mt-3"></i>
+                    </a>
 
                 </div>
 
