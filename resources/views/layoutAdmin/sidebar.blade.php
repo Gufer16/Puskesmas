@@ -38,14 +38,19 @@
             <span>Pendaftaran</span>
         </a>
 
-        <a href="/Jadwal" class="menu-item">
+        <a href="{{ route('jadwal.index') }}" class="menu-item">
             <i class="fa-solid fa-calendar-days"></i>
             <span>Jadwal</span>
         </a>
 
-        <a href="/konsultasi" class="menu-item">
+        <a href="{{ route('konsultasi.index') }}" class="menu-item">
             <i class="fa-solid fa-list"></i>
             <span>Konsultasi</span>
+        </a>
+
+        <a href="#" class="menu-item">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <span>Biaya Konsultasi</span>
         </a>
 
         <p class="menu-label mt-4">MANAJEMEN</p>

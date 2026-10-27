@@ -1,0 +1,442 @@
+/* Latar halaman */
+.detail-page {
+    background: #edf1f5;
+    min-height: 100vh;
+    padding: 28px 20px;
+    color: #263445;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tombol */
+.action-bar {
+    max-width: 850px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.action-bar .btn {
+    border-radius: 7px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn-back {
+    color: #334155;
+    background: #ffffff;
+    border: 1px solid #d5dce5;
+}
+
+.btn-back:hover {
+    background: #f8fafc;
+}
+
+.btn-print {
+    background: #2563eb;
+    color: #ffffff;
+    border: 1px solid #2563eb;
+}
+
+.btn-print:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+/* Kertas laporan */
+.report-paper {
+    width: 100%;
+    max-width: 850px;
+    min-height: 1100px;
+    margin: 0 auto;
+    padding: 42px 45px;
+    background: #ffffff;
+    box-shadow: 0 5px 25px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+    font-size: 12px;
+}
+
+/* Kop laporan */
+.report-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.report-logo {
+    width: 72px;
+    height: 72px;
+    border: 2px solid #1e3a5f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e3a5f;
+    font-size: 34px;
+    flex-shrink: 0;
+}
+
+.report-header-text h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+.report-header-text h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 7px;
+    letter-spacing: 0.7px;
+}
+
+.report-header-text p {
+    font-size: 10px;
+    margin: 3px 0;
+    color: #475569;
+}
+
+.report-divider {
+    height: 4px;
+    border-top: 2px solid #1e3a5f;
+    border-bottom: 1px solid #1e3a5f;
+    margin: 22px 0;
+}
+
+/* Judul */
+.report-title {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.report-title h3 {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin: 0 0 7px;
+}
+
+.report-title p {
+    font-size: 11px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Bagian laporan */
+.report-section {
+    margin-bottom: 23px;
+    break-inside: avoid;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #cbd5e1;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.section-title span {
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #eaf1ff;
+    color: #1d4ed8;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+/* Tabel informasi */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1.6;
+}
+
+.info-table td {
+    padding: 5px 6px;
+    vertical-align: top;
+}
+
+.info-table td:nth-child(odd) {
+    color: #64748b;
+    width: 19%;
+}
+
+.info-table td:nth-child(even) {
+    color: #1e293b;
+    font-weight: 600;
+    width: 31%;
+}
+
+/* Hasil pemeriksaan */
+.medical-item {
+    margin-bottom: 13px;
+}
+
+.medical-item h5 {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.medical-item p {
+    margin: 0;
+    padding: 9px 11px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background: #f8fafc;
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* Tabel obat */
+.medicine-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.medicine-table th,
+.medicine-table td {
+    border: 1px solid #cbd5e1;
+    padding: 10px 9px;
+}
+
+.medicine-table th {
+    background: #eff4fb;
+    font-weight: 700;
+    text-align: left;
+}
+
+.medicine-table .text-center {
+    text-align: center;
+}
+
+.medicine-table .text-end {
+    text-align: right;
+}
+
+/* Rincian biaya */
+.cost-table {
+    width: 55%;
+    margin-left: auto;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.cost-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.cost-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.grand-total td {
+    background: #eff4fb;
+    border-top: 2px solid #1e3a5f;
+    border-bottom: 2px solid #1e3a5f;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+/* Tanda tangan */
+.signature-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+    gap: 30px;
+}
+
+.signature-box {
+    width: 220px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.signature-box > p:first-child {
+    margin-bottom: 0;
+}
+
+.signature-space {
+    height: 65px;
+}
+
+.signature-name {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Footer */
+.report-footer {
+    border-top: 1px solid #cbd5e1;
+    margin-top: 35px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 9px;
+    color: #64748b;
+}
+
+.report-footer p {
+    margin: 4px 0;
+}
+
+/* Responsif */
+@media screen and (max-width: 600px) {
+    .detail-page {
+        padding: 12px 5px;
+    }
+
+    .report-paper {
+        padding: 22px 15px;
+        min-height: auto;
+    }
+
+    .report-header {
+        gap: 10px;
+    }
+
+    .report-logo {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+
+    .report-header-text h2 {
+        font-size: 10px;
+    }
+
+    .report-header-text h3 {
+        font-size: 15px;
+    }
+
+    .report-header-text p {
+        font-size: 8px;
+    }
+
+    .info-table td {
+        padding: 5px 3px;
+        overflow-wrap: anywhere;
+    }
+
+    .info-table td:nth-child(odd) {
+        width: 22%;
+    }
+
+    .info-table td:nth-child(even) {
+        width: 28%;
+    }
+
+    .medicine-table th,
+    .medicine-table td {
+        padding: 6px 4px;
+        font-size: 9px;
+        overflow-wrap: anywhere;
+    }
+
+    .cost-table {
+        width: 100%;
+    }
+
+    .signature-area {
+        gap: 10px;
+    }
+}
+
+/* Tampilan cetak */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 10mm;
+    }
+
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        color: #263445 !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* Sembunyikan layout dashboard */
+    body * {
+        visibility: hidden;
+    }
+
+    .detail-page,
+    .detail-page * {
+        visibility: visible;
+    }
+
+    .no-print,
+    .action-bar {
+        display: none !important;
+    }
+
+    .detail-page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 0;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff !important;
+    }
+
+    .report-paper {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+        font-size: 11px;
+    }
+
+    .report-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .report-header,
+    .section-title,
+    .medicine-table,
+    .cost-table,
+    .signature-area {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .medical-item p {
+        background: #f8fafc !important;
+    }
+
+    .medicine-table th,
+    .grand-total td,
+    .section-title span {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+}

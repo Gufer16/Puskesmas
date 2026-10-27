@@ -24,12 +24,12 @@ class konsultasi extends Model
         'tanggal_periksa',
     ];
 
-    public function pendaftarans()
+    public function pendaftaran()
     {
         return $this->belongsTo(pendaftaran::class, 'id_pendaftaran');
     }
 
-    public function dokters()
+    public function dokter()
     {
         return $this->belongsTo(dokter::class, 'id_dokter');
     }
