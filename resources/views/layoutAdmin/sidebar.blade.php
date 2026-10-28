@@ -48,16 +48,21 @@
             <span>Konsultasi</span>
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="{{ route('biayaKonsultasi.index') }}" class="menu-item">
             <i class="fa-solid fa-sack-dollar"></i>
             <span>Biaya Konsultasi</span>
         </a>
 
         <p class="menu-label mt-4">MANAJEMEN</p>
 
-        <a href="/obat" class="menu-item">
+        <a href="{{ route('obat.index') }}" class="menu-item">
             <i class="fa-solid fa-pills"></i>
             <span>Obat</span>
+        </a>
+
+        <a href="/penjualan_obat" class="menu-item">
+            <i class="fa-solid fa-cart-plus"></i>
+            <span>Penjualan Obat</span>
         </a>
 
         <a href="/petugas" class="menu-item">

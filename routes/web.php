@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\BiayaKonsultasiController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DokterController;
 use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\KonsultasiController;
+use App\Http\Controllers\Admin\ObatController;
 use App\Http\Controllers\Admin\PasienController;
 use App\Http\Controllers\Admin\PendaftaranController;
 use App\Http\Controllers\Login\LoginController;
@@ -44,4 +46,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // ----- KONSULTASI -----
     Route::resource('/admin/konsultasi', KonsultasiController::class);
+
+    // ----- BIAYA KONSULTASI -----
+    Route::resource('/admin/biayaKonsultasi', BiayaKonsultasiController::class);
+
+    // ----- OBAT -----
+    Route::resource('/admin/obat', ObatController::class);
 });

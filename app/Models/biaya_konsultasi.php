@@ -16,12 +16,12 @@ class biaya_konsultasi extends Model
         'total_biaya',
     ];
 
-    public function obats()
+    public function obat()
     {
         return $this->belongsTo(obat::class, 'id_obat');
     }
 
-    public function konsultasis()
+    public function konsultasi()
     {
         return $this->belongsTo(konsultasi::class, 'id_konsultasi');
     }
