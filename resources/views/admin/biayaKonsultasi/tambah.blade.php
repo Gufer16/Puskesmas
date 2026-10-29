@@ -116,7 +116,7 @@
                                 <option disabled selected>Pilih Obat</option>
                                 @foreach ($obats as $obat)
                                     <option value="{{ $obat->id }}">
-                                        {{ $obat->nama_obat }}</option>
+                                        {{ $obat->nama_obat }} ( {{ $obat->jenis_obat }} )</option>
                                 @endforeach
                             </select>
                         </div>

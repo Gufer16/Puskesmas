@@ -17,12 +17,12 @@ class obat extends Model
         'tanggal_kadaluarsa',
     ];
 
-    public function biaya_konsultasis()
+    public function biaya_konsultasi()
     {
         return $this->hasMany(biaya_konsultasi::class, 'id_obat');
     }
 
-    public function penjualan_obats()
+    public function penjualan_obat()
     {
         return $this->hasMany(penjualan_obat::class, 'id_obat');
     }

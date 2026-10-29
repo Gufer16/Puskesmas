@@ -167,6 +167,7 @@
                     <div class="alert alert-success mb-3 mt-2">
                         <i class="fa-solid fa-check me-1"></i>
                         {{ session('success') }}
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                     </div>
                 @endif
 

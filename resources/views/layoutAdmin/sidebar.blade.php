@@ -60,19 +60,14 @@
             <span>Obat</span>
         </a>
 
-        <a href="/penjualan_obat" class="menu-item">
+        <a href="{{ route('penjualanObat.index') }}" class="menu-item">
             <i class="fa-solid fa-cart-plus"></i>
             <span>Penjualan Obat</span>
         </a>
 
-        <a href="/petugas" class="menu-item">
+        <a href="{{ route('pengguna.index') }}" class="menu-item">
             <i class="fa-solid fa-users"></i>
             <span>Pengguna Sistem</span>
-        </a>
-
-        <a href="/laporan" class="menu-item">
-            <i class="fa-solid fa-chart-column"></i>
-            <span>Laporan</span>
         </a>
 
         <p class="menu-label mt-4">PROFILE</p>

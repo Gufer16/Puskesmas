@@ -65,27 +65,6 @@
 
             </div>
 
-            {{-- Ringkasan Data --}}
-            <div class="row g-3 mb-4">
-
-                <div class="col-xl-12">
-                    <div class="patient-stat-card">
-
-                        <div class="patient-stat-icon blue">
-                            <i class="fa-solid fa-calendar-check"></i>
-                        </div>
-
-                        <div>
-                            <p>Total Pasien Terdaftar</p>
-                            <h4>{{ $jumlahDaftar }}</h4>
-                            <span>Seluruh pasien terdaftar</span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
             {{-- Tabel Data Pasien --}}
             <div class="card patient-table-card px-2">
 
@@ -134,6 +113,7 @@
                     <div class="alert alert-success mb-3 mt-2">
                         <i class="fa-solid fa-check me-1"></i>
                         {{ session('success') }}
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                     </div>
                 @endif
 

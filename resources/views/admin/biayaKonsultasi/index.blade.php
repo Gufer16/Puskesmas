@@ -53,7 +53,7 @@
 
                 <div>
                     <h5 class="fw-bold mb-2">
-                        <i class="fa-solid fa-hospital-user"></i>
+                        <i class="fa-solid fa-sack-dollar"></i>
                         Data Biaya Konsultasi
                     </h5>
                 </div>
@@ -114,6 +114,7 @@
                     <div class="alert alert-success mb-3 mt-2">
                         <i class="fa-solid fa-check me-1"></i>
                         {{ session('success') }}
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                     </div>
                 @endif
 
@@ -128,6 +129,7 @@
                                 <th>Pasien</th>
                                 <th>Obat</th>
                                 <th>Jumlah Obat</th>
+                                <th>Biaya Obat</th>
                                 <th>Biaya Konsultasi</th>
                                 <th>Total Biaya</th>
                                 <th>Aksi</th>
@@ -142,6 +144,8 @@
                                     <td>{{ $biayaKonsultasi->konsultasi->pendaftaran->pasien->nama_pasien }}</td>
                                     <td>{{ $biayaKonsultasi->obat->nama_obat }}</td>
                                     <td>{{ $biayaKonsultasi->jumlah_obat }}</td>
+                                    <td>{{ number_format($biayaKonsultasi->obat->harga_satuan * $biayaKonsultasi->jumlah_obat, 0, ',', '.') }}
+                                    </td>
                                     <td>{{ number_format($biayaKonsultasi->biaya_konsultasi, 0, ',', '.') }}</td>
                                     <td>{{ number_format($biayaKonsultasi->total_biaya, 0, ',', '.') }}</td>
                                     <td>

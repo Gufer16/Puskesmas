@@ -15,7 +15,7 @@ class penjualan_obat extends Model
         'tanggal_penjualan',
     ];
 
-    public function obats()
+    public function obat()
     {
         return $this->belongsTo(obat::class, 'id_obat');
     }

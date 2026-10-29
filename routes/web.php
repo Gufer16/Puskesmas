@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\KonsultasiController;
 use App\Http\Controllers\Admin\ObatController;
 use App\Http\Controllers\Admin\PasienController;
 use App\Http\Controllers\Admin\PendaftaranController;
+use App\Http\Controllers\Admin\PenggunaController;
+use App\Http\Controllers\Admin\PenjualanObatController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +54,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // ----- OBAT -----
     Route::resource('/admin/obat', ObatController::class);
+
+    // ----- PENJUALAN OBAT -----
+    Route::resource('/admin/penjualanObat', PenjualanObatController::class);
+
+    // ----- PENGGUNA -----
+    Route::resource('/admin/pengguna', PenggunaController::class);
 });
