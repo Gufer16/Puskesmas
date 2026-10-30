@@ -72,7 +72,7 @@
 
         <p class="menu-label mt-4">PROFILE</p>
 
-        <a href="/profile" class="menu-item">
+        <a href="{{ route('akun.index') }}" class="menu-item">
             <i class="fa-solid fa-user-circle"></i>
             <span>Akun</span>
         </a>

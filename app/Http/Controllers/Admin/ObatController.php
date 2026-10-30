@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\obat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class ObatController extends Controller
@@ -116,5 +117,23 @@ class ObatController extends Controller
         return redirect()
             ->route('obat.index')
             ->with('success', 'Data Obat Berhasil Dihapus.');
+    }
+
+    public function tambahStok(obat $obat)
+    {
+        return view('admin.obat.tambahStok', compact('obat'));
+    }
+
+    public function tambahStokProses(Request $request, obat $obat)
+    {
+        $data = $request->validate([
+            'jumlah_stok' => 'required|integer|min:1',
+        ]);
+
+        $obat->increment('stok_obat', $data['jumlah_stok']);
+
+        return redirect()
+            ->route('obat.index')
+            ->with('success', 'Stok obat berhasil ditambahkan.');
     }
 }

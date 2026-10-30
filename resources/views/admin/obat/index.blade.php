@@ -23,7 +23,7 @@
 
 <body>
 
-    @include('layoutAdmin.sidebar');
+    @include('layoutAdmin.sidebar')
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
@@ -48,7 +48,7 @@
 
         <section class="content-area">
 
-            {{-- Judul Halaman --}}
+            <!-- Judul Halaman -->
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
 
                 <div>
@@ -70,32 +70,26 @@
                         Laporan Obat
                     </a>
                 </div>
+
             </div>
 
-            {{-- Tabel Data Obat --}}
+            <!-- Tabel Data Obat -->
             <div class="card patient-table-card px-2">
 
                 <div class="card-header patient-card-header">
-
                     <div>
                         <h6 class="fw-bold mb-1">Daftar Obat</h6>
-
                         <p class="text-muted small mb-0">
                             Informasi seluruh obat di puskesmas.
                         </p>
                     </div>
-
                 </div>
 
-                {{-- Pencarian dan Tombol Filter --}}
+                <!-- Pencarian -->
                 <div class="patient-filter d-flex">
 
                     <div class="patient-search w-100">
-
                         <form action="{{ route('obat.index') }}" method="GET">
-
-                            @csrf
-
                             <div class="input-group patient-search">
 
                                 <input type="text" name="cari" class="form-control" placeholder="Cari obat..."
@@ -106,26 +100,33 @@
                                 </button>
 
                             </div>
-
                         </form>
-
                     </div>
 
-                    <a href="{{ route('obat.index') }}" class="btn btn-danger btn-sm ms-1">
+                    <a href="{{ route('obat.index') }}" class="btn btn-danger btn-sm ms-1" title="Reset pencarian">
                         <i class="fa-solid fa-arrow-rotate-left mt-3"></i>
                     </a>
 
                 </div>
 
+                <!-- Notifikasi -->
                 @if (session('success'))
                     <div class="alert alert-success mb-3 mt-2">
                         <i class="fa-solid fa-check me-1"></i>
                         {{ session('success') }}
-                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert">
+                        </button>
                     </div>
                 @endif
 
-                {{-- Tabel --}}
+                @if ($errors->has('jumlah_stok'))
+                    <div class="alert alert-danger mb-3 mt-2">
+                        {{ $errors->first('jumlah_stok') }}
+                    </div>
+                @endif
+
+                <!-- Tabel -->
                 <div class="table-responsive">
 
                     <table class="table patient-table align-middle mb-0">
@@ -151,40 +152,147 @@
                                     <td>{{ $obat->kode_obat }}</td>
                                     <td>{{ $obat->nama_obat }}</td>
                                     <td>{{ $obat->jenis_obat }}</td>
-                                    <td>{{ $obat->stok_obat }}</td>
-                                    <td>{{ number_format($obat->harga_satuan, 0, ',', '.') }}</td>
-                                    <td>{{ $obat->tanggal_kadaluarsa }}</td>
                                     <td>
-                                        <form action="{{ route('obat.destroy', $obat->id) }}" method="POST">
+                                        <span
+                                            class="badge px-2 py-1 {{ $obat->stok_obat <= 10 ? 'bg-danger' : 'bg-success' }}">
+                                            {{ $obat->stok_obat }}
+                                        </span>
+                                    </td>
+                                    <td>Rp {{ number_format($obat->harga_satuan, 0, ',', '.') }}</td>
+                                    <td>{{ $obat->tanggal_kadaluarsa }}</td>
 
+                                    <td>
+                                        <div class="d-flex align-items-center">
+
+                                            <!-- Tombol Edit -->
                                             <a href="{{ route('obat.edit', $obat->id) }}"
-                                                class="btn btn-sm btn-warning text-light me-1 rounded-3"
+                                                class="btn btn-sm btn-warning text-light me-2 rounded-3"
                                                 title="Edit Obat">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
 
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-sm btn-danger rounded-3"
-                                                title="Hapus Obat"
-                                                onclick="return confirm('Yakin ingin menghapus data obat ini?')">
-                                                <i class="fa-solid fa-trash"></i>
+                                            <!-- Tombol Tambah Stok -->
+                                            <button type="button"
+                                                class="btn btn-sm btn-primary text-light me-2 rounded-3"
+                                                data-bs-toggle="modal" data-bs-target="#modalStok{{ $obat->id }}"
+                                                title="Tambah Stok Obat">
+                                                <i class="fa-solid fa-plus"></i>
                                             </button>
 
-                                        </form>
+                                            <!-- Tombol Hapus -->
+                                            <form action="{{ route('obat.destroy', $obat->id) }}" method="POST"
+                                                class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-sm btn-danger rounded-3"
+                                                    title="Hapus Obat"
+                                                    onclick="return confirm('Yakin ingin menghapus data obat ini?')">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
+
+                                        </div>
                                     </td>
                                 </tr>
+
+                                <!-- Modal Tambah Stok -->
+                                <div class="modal fade" id="modalStok{{ $obat->id }}" tabindex="-1"
+                                    aria-labelledby="judulModalStok{{ $obat->id }}" aria-hidden="true">
+
+                                    <div class="modal-dialog modal-dialog-centered">
+
+                                        <div class="modal-content border-0 shadow">
+
+                                            <div class="modal-header bg-primary text-white">
+                                                <h5 class="modal-title fw-bold" id="judulModalStok{{ $obat->id }}">
+                                                    <i class="fa-solid fa-boxes-stacked me-2"></i>
+                                                    Tambah Stok Obat
+                                                </h5>
+
+                                                <button type="button" class="btn-close btn-close-white"
+                                                    data-bs-dismiss="modal" aria-label="Tutup">
+                                                </button>
+                                            </div>
+
+                                            <form action="{{ route('obat.tambahStokProses', ['obat' => $obat->id]) }}"
+                                                method="POST">
+
+                                                @csrf
+                                                @method('PATCH')
+
+                                                <div class="modal-body p-4">
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-semibold">
+                                                            Kode Obat
+                                                        </label>
+
+                                                        <input type="text" class="form-control"
+                                                            value="{{ $obat->kode_obat }}" readonly>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-semibold">
+                                                            Nama Obat
+                                                        </label>
+
+                                                        <input type="text" class="form-control"
+                                                            value="{{ $obat->nama_obat }}" readonly>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-semibold">
+                                                            Stok Saat Ini
+                                                        </label>
+
+                                                        <input type="number" class="form-control"
+                                                            value="{{ $obat->stok_obat }}" readonly>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="jumlah_stok{{ $obat->id }}"
+                                                            class="form-label fw-semibold">
+                                                            Jumlah Stok yang Ditambahkan
+                                                        </label>
+
+                                                        <input type="number" id="jumlah_stok{{ $obat->id }}"
+                                                            name="jumlah_stok" class="form-control" min="1"
+                                                            step="1" placeholder="Masukkan jumlah stok"
+                                                            required>
+
+                                                        <small class="text-muted">
+                                                            Masukkan jumlah obat yang diterima.
+                                                        </small>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary rounded-3"
+                                                        data-bs-dismiss="modal">
+                                                        Batal
+                                                    </button>
+
+                                                    <button type="submit" class="btn btn-primary rounded-3">
+                                                        <i class="fa-solid fa-check me-1"></i>
+                                                        Simpan Stok
+                                                    </button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             @empty
                                 <tr>
                                     <td colspan="8" class="text-center py-5">
-
                                         <div class="empty-patient">
                                             <i class="fa-solid fa-folder-open"></i>
-
                                             <h6>Tidak Ada Data Obat</h6>
                                         </div>
-
                                     </td>
                                 </tr>
                             @endforelse
@@ -201,4 +309,11 @@
 
     </main>
 
-    @include('layoutAdmin.footer');
+    @include('layoutAdmin.footer')
+
+    <!-- Bootstrap JS: wajib agar modal berfungsi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

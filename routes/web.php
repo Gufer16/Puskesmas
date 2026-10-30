@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\BiayaKonsultasiController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DokterController;
@@ -55,9 +56,24 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // ----- OBAT -----
     Route::resource('/admin/obat', ObatController::class);
 
+    // ----- TAMBAH STOK OBAT PROSES -----
+    Route::patch('/admin/obat/{obat}/tambah-stok', [ObatController::class, 'tambahStokProses'])
+        ->name('obat.tambahStokProses');
+
     // ----- PENJUALAN OBAT -----
     Route::resource('/admin/penjualanObat', PenjualanObatController::class);
 
     // ----- PENGGUNA -----
     Route::resource('/admin/pengguna', PenggunaController::class);
+
+    // ----- AKUN -----
+    Route::get('/admin/akun/index', [AkunController::class, 'index'])->name('akun.index');
+
+    Route::get('/admin/akun/editProfile/{user}', [AkunController::class, 'edit'])->name('akun.edit');
+
+    Route::patch('/admin/akun/editProfile/{user}', [AkunController::class, 'update'])->name('akun.update');
+
+    Route::get('/admin/akun/editPassword/{user}', [AkunController::class, 'editPassword'])->name('akun.editPassword');
+
+    Route::patch('/admin/akun/editPassword/{user}', [AkunController::class, 'ubahPasswordProses'])->name('akun.updatePassword');
 });
