@@ -63,9 +63,7 @@
                         <i class="fa-solid fa-plus me-1"></i>
                         Tambah Obat
                     </a>
-
-                    <a href="{{ route('obat.show', $obats->all()) }}"
-                        class="btn btn-secondary btn-sm shadow rounded-3 px-3">
+                    <a href="{{ route('laporan.obat') }}" class="btn btn-secondary btn-sm shadow rounded-3 px-3">
                         <i class="fa-solid fa-print me-1"></i>
                         Laporan Obat
                     </a>
@@ -206,7 +204,7 @@
 
                                             <div class="modal-header bg-primary text-white">
                                                 <h5 class="modal-title fw-bold" id="judulModalStok{{ $obat->id }}">
-                                                    <i class="fa-solid fa-boxes-stacked me-2"></i>
+                                                    <i class="fa-solid fa-pills me-2"></i>
                                                     Tambah Stok Obat
                                                 </h5>
 
@@ -232,13 +230,30 @@
                                                             value="{{ $obat->kode_obat }}" readonly>
                                                     </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="form-label fw-semibold">
-                                                            Nama Obat
-                                                        </label>
+                                                    <div class="row">
 
-                                                        <input type="text" class="form-control"
-                                                            value="{{ $obat->nama_obat }}" readonly>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label fw-semibold">
+                                                                    Nama Obat
+                                                                </label>
+
+                                                                <input type="text" class="form-control"
+                                                                    value="{{ $obat->nama_obat }}" readonly>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label fw-semibold">
+                                                                    Jenis Obat
+                                                                </label>
+
+                                                                <input type="text" class="form-control"
+                                                                    value="{{ $obat->jenis_obat }}" readonly>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
 
                                                     <div class="mb-3">
@@ -253,31 +268,31 @@
                                                     <div class="mb-3">
                                                         <label for="jumlah_stok{{ $obat->id }}"
                                                             class="form-label fw-semibold">
-                                                            Jumlah Stok yang Ditambahkan
+                                                            Penambahan Stok
                                                         </label>
 
                                                         <input type="number" id="jumlah_stok{{ $obat->id }}"
                                                             name="jumlah_stok" class="form-control" min="1"
-                                                            step="1" placeholder="Masukkan jumlah stok"
+                                                            step="1"
+                                                            placeholder="Masukkan jumlah penambahan stok obat"
                                                             required>
 
-                                                        <small class="text-muted">
-                                                            Masukkan jumlah obat yang diterima.
-                                                        </small>
                                                     </div>
 
                                                 </div>
 
                                                 <div class="modal-footer">
+
+                                                    <button type="submit" class="btn btn-primary rounded-3">
+                                                        <i class="fa-solid fa-save me-1"></i>
+                                                        Tambah Stok
+                                                    </button>
+
                                                     <button type="button" class="btn btn-secondary rounded-3"
                                                         data-bs-dismiss="modal">
                                                         Batal
                                                     </button>
 
-                                                    <button type="submit" class="btn btn-primary rounded-3">
-                                                        <i class="fa-solid fa-check me-1"></i>
-                                                        Simpan Stok
-                                                    </button>
                                                 </div>
 
                                             </form>

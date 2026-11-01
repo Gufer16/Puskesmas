@@ -68,7 +68,7 @@
                 </thead>
 
                 <tbody class="text-center">
-                    @foreach ($obats as $obat)
+                    @forelse ($obats as $obat)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $obat->kode_obat }}</td>
@@ -78,7 +78,13 @@
                             <td>{{ $obat->harga_satuan }}</td>
                             <td>{{ $obat->tanggal_kadaluarsa }}</td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center">
+                                Data Obat Belum Tersedia
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
 
             </table>

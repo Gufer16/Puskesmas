@@ -101,7 +101,6 @@
                 <span class="text-dark">Admin Puskesmas</span>
             </div>
 
-            <i class="fa-solid fa-ellipsis-vertical user-more"></i>
         </div>
 
     </div>

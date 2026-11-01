@@ -66,7 +66,7 @@
                         Tambah Penjualan
                     </a>
 
-                    <a href="{{ route('penjualanObat.show', $penjualanObats->all()) }}"
+                    <a href="{{ route('laporan.penjualanObat') }}"
                         class="btn btn-secondary btn-sm shadow rounded-3 px-3">
                         <i class="fa-solid fa-print me-1"></i>
                         Laporan Penjualan

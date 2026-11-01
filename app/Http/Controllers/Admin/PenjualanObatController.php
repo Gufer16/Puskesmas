@@ -85,7 +85,7 @@ class PenjualanObatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function laporan()
     {
         $penjualanObats = penjualan_obat::with('obat')->latest()->get();
 

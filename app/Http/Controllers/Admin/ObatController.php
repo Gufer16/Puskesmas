@@ -26,7 +26,9 @@ class ObatController extends Controller
                 ->orWhere('tanggal_kadaluarsa', 'like', "%{$cari}%");
         })->latest()->get();
 
-        return view('admin.obat.index', compact('obats'));
+        $obatss = obat::all();
+
+        return view('admin.obat.index', compact('obats', 'obatss'));
     }
 
     /**
@@ -61,7 +63,7 @@ class ObatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function laporan()
     {
         $obats = obat::latest()->get();
 

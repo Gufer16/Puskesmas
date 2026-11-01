@@ -13,6 +13,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
+        'id_dokter',
         'nama',
         'username',
         'password',
@@ -29,5 +30,10 @@ class User extends Authenticatable
         return [
             'password' => 'hashed',
         ];
+    }
+
+    public function dokter()
+    {
+        return $this->belongsTo(dokter::class, 'id_dokter');
     }
 }

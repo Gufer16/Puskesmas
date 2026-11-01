@@ -58,7 +58,7 @@
                     </h5>
                 </div>
 
-                <a href="{{ route('pengguna.create') }}" class="btn btn-primary btn-sm shadow rounded-3 px-3">
+                <a href="{{ route('perantara.akun') }}" class="btn btn-primary btn-sm shadow rounded-3 px-3">
                     <i class="fa-solid fa-plus me-1"></i>
                     Tambah Pengguna
                 </a>

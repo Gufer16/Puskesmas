@@ -11,12 +11,14 @@ use App\Http\Controllers\Admin\PasienController;
 use App\Http\Controllers\Admin\PendaftaranController;
 use App\Http\Controllers\Admin\PenggunaController;
 use App\Http\Controllers\Admin\PenjualanObatController;
+use App\Http\Controllers\Admin\PerantaraController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('login.login');
+    return view('beranda');
 });
 
 // ----- LOGIN ----
@@ -33,7 +35,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // ----- ADMIN -----
 Route::middleware(['auth', 'admin'])->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin'])->name('admin.dashboard');
 
     // ----- PASIEN -----
     Route::resource('/admin/pasien', PasienController::class);
@@ -56,6 +58,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // ----- OBAT -----
     Route::resource('/admin/obat', ObatController::class);
 
+    Route::get('/obat/detail', [ObatController::class, 'laporan'])->name('laporan.obat');
+
     // ----- TAMBAH STOK OBAT PROSES -----
     Route::patch('/admin/obat/{obat}/tambah-stok', [ObatController::class, 'tambahStokProses'])
         ->name('obat.tambahStokProses');
@@ -63,8 +67,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // ----- PENJUALAN OBAT -----
     Route::resource('/admin/penjualanObat', PenjualanObatController::class);
 
+    Route::get('/penjualanObat/detail', [PenjualanObatController::class, 'laporan'])->name('laporan.penjualanObat');
+
     // ----- PENGGUNA -----
     Route::resource('/admin/pengguna', PenggunaController::class);
+
+    Route::get('/pengguna/perantara', [PerantaraController::class, 'index'])->name('perantara.akun');
+    Route::get('/pengguna/tambahDokter', [PerantaraController::class, 'dokter'])->name('tambahAkunDokter');
+    Route::post('/pengguna/tambahDokter', [PerantaraController::class, 'tambahDokter'])->name('tambah.dokter');
 
     // ----- AKUN -----
     Route::get('/admin/akun/index', [AkunController::class, 'index'])->name('akun.index');
@@ -77,3 +87,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::patch('/admin/akun/editPassword/{user}', [AkunController::class, 'ubahPasswordProses'])->name('akun.updatePassword');
 });
+
+Route::get('/beranda', [BerandaController::class, 'beranda'])->name('beranda');

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function dashboard()
+    public function dashboardAdmin()
     {
         if (Auth::user()->role !== 'admin') {
             abort(403, 'Akses ditolak.');

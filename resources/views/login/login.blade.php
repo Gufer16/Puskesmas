@@ -107,10 +107,6 @@
                     </div>
                 </div>
 
-                <div class="welcome-icon">
-                    <span>✚</span>
-                </div>
-
                 <h2>Selamat Datang!</h2>
 
                 <p class="login-description mb-3">
@@ -174,10 +170,15 @@
                     </div>
 
                     <!-- TOMBOL LOGIN -->
-                    <button type="submit" class="login-button">
+                    <button type="submit" class="login-button mb-3">
                         <span>Masuk</span>
                         <span class="arrow">→</span>
                     </button>
+
+                    <a href="{{ route('beranda') }}">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Kembali
+                    </a>
 
                 </form>
 

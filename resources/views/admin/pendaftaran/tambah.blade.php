@@ -109,13 +109,13 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label class="form-label">No. Antrian</label>
                             <input type="text" name="no_antrian" class="form-control"
                                 value="{{ old('no_antrian', $no_antrian) }}">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label class="form-label">Jenis Kunjungan</label>
                             <input type="text" name="jenis_kunjungan" class="form-control"
                                 placeholder="Masukan jenis kunjungan pasien">
