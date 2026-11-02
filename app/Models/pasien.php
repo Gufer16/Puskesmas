@@ -26,7 +26,7 @@ class pasien extends Model
         'tanggal_daftar',
     ];
 
-    public function pendaftarans()
+    public function pendaftaran()
     {
         return $this->hasMany(pendaftaran::class, 'id_pasien');
     }

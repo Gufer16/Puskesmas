@@ -17,7 +17,7 @@ class JadwalController extends Controller
     {
         $cari = $request->cari;
 
-        $jadwals = jadwal::with('dokters', 'pendaftarans')
+        $jadwals = jadwal::with('dokter', 'pendaftaran')
             ->when($cari, function ($query, $cari) {
                 $query->whereHas('dokters', function ($query) use ($cari) {
                     $query->where('nama_dokter', 'like', "%{$cari}%");

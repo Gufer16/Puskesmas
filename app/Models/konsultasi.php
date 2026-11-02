@@ -34,7 +34,7 @@ class konsultasi extends Model
         return $this->belongsTo(dokter::class, 'id_dokter');
     }
 
-    public function biayaKonsultasis()
+    public function biayaKonsultasi()
     {
         return $this->hasMany(biaya_konsultasi::class, 'id_konsultasi');
     }

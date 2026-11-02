@@ -20,7 +20,7 @@ class pendaftaran extends Model
         return $this->belongsTo(pasien::class, 'id_pasien');
     }
 
-    public function jadwals()
+    public function jadwal()
     {
         return $this->hasMany(jadwal::class, 'id_pendaftaran');
     }

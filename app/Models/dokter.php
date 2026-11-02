@@ -18,12 +18,12 @@ class dokter extends Model
         'foto_dokter',
     ];
 
-    public function jadwals()
+    public function jadwal()
     {
         return $this->hasMany(jadwal::class, 'id_dokter');
     }
 
-    public function konsultasis()
+    public function konsultasi()
     {
         return $this->hasMany(konsultasi::class, 'id_dokter');
     }

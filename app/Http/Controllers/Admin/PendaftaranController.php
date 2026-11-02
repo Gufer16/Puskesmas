@@ -60,7 +60,7 @@ class PendaftaranController extends Controller
     {
         $data = $request->validate([
             'id_pasien'         => 'required|exists:pasiens,id',
-            'no_antrian'        => 'required|unique:pendaftarans,no_antrian',
+            'no_antrian'        => 'required|integer',
             'jenis_kunjungan'   => 'required|string|max:100',
         ]);
         $data['tanggal_daftar'] = today()->toDateString();

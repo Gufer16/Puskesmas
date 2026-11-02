@@ -15,12 +15,12 @@ class jadwal extends Model
         'jam',
     ];
 
-    public function dokters()
+    public function dokter()
     {
         return $this->belongsTo(dokter::class, 'id_dokter');
     }
 
-    public function pendaftarans()
+    public function pendaftaran()
     {
         return $this->belongsTo(pendaftaran::class, 'id_pendaftaran');
     }

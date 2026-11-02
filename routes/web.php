@@ -13,6 +13,10 @@ use App\Http\Controllers\Admin\PenggunaController;
 use App\Http\Controllers\Admin\PenjualanObatController;
 use App\Http\Controllers\Admin\PerantaraController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\Dokter\AkunDokterController;
+use App\Http\Controllers\Dokter\DashboardDokterController;
+use App\Http\Controllers\Dokter\JadwalDokterController;
+use App\Http\Controllers\Dokter\KonsultasiDokterController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +39,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // ----- ADMIN -----
 Route::middleware(['auth', 'admin'])->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'dashboardAdmin'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'dashboardAdmin'])->name('admin.dashboard');
 
     // ----- PASIEN -----
     Route::resource('/admin/pasien', PasienController::class);
@@ -89,3 +93,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::get('/beranda', [BerandaController::class, 'beranda'])->name('beranda');
+
+Route::middleware(['auth', 'dokter'])->group(function () {
+
+    Route::get('/dokter/dashboard', [DashboardDokterController::class, 'dashboardDokter'])->name('dokter.dashboard');
+
+    // ----- JADWAL -----
+    Route::get('/dokter/jadwal', [JadwalDokterController::class, 'index'])->name('dokter.jadwal');
+
+    // ----- KONSULTASI -----
+    Route::get('/dokter/konsultasi', [KonsultasiDokterController::class, 'index'])->name('dokter.konsultasi');
+
+    Route::get('/dokter/detailPasien/{pasien}', [KonsultasiDokterController::class, 'detailPasien'])->name('konsultasi.detailPasien');
+
+    Route::get('/dokter/mulaiKonsultasi/{pendaftaran}', [KonsultasiDokterController::class, 'mulaiKonsultasi'])->name('mulaiKonsultasi');
+
+    Route::post('/dokter/mulaiKonsultasi', [KonsultasiDokterController::class, 'mulaiKonsultasiProses'])->name('konsultasi.proses');
+
+    // ----- AKUN -----
+    Route::get('/dokter/akun', [AkunDokterController::class, 'index'])->name('dokter.akun');
+
+    Route::get('/dokter/editAkun', [AkunDokterController::class, 'editAkunDokter'])->name('dokter.editAkun');
+
+    Route::patch('/dokter/editAkun', [AkunDokterController::class, 'profileUpdate'])->name('dokter.editAkunProses');
+});

@@ -139,8 +139,8 @@
                             @forelse ($jadwals as $jadwal)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $jadwal->dokters->nama_dokter }}</td>
-                                    <td>{{ $jadwal->pendaftarans->pasien->nama_pasien }}</td>
+                                    <td>{{ $jadwal->dokter->nama_dokter }}</td>
+                                    <td>{{ $jadwal->pendaftaran->pasien->nama_pasien }}</td>
                                     <td>{{ $jadwal->hari }}</td>
                                     <td>{{ $jadwal->jam }}</td>
                                     <td>
