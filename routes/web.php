@@ -116,4 +116,14 @@ Route::middleware(['auth', 'dokter'])->group(function () {
     Route::get('/dokter/editAkun', [AkunDokterController::class, 'editAkunDokter'])->name('dokter.editAkun');
 
     Route::patch('/dokter/editAkun', [AkunDokterController::class, 'profileUpdate'])->name('dokter.editAkunProses');
+
+    Route::get('/dokter/perantara', [AkunDokterController::class, 'perantara'])->name('dokter.perantara');
+
+    Route::get('/dokter/editUsername', [AkunDokterController::class, 'editUsername'])->name('dokter.editUsername');
+
+    Route::patch('/dokter/editUsername', [AkunDokterController::class, 'updateUsername'])->name('dokter.updateUsername');
+
+    Route::get('/dokter/editPassword', [AkunDokterController::class, 'editPassword'])->name('dokter.editPassword');
+
+    Route::patch('/dokter/editPassword', [AkunDokterController::class, 'updatePassword'])->name('dokter.updatePassword');
 });

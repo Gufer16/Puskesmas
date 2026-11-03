@@ -116,6 +116,7 @@
                         <thead>
                             <tr>
                                 <th class="ps-4 py-3 text-muted">No</th>
+                                <th class="ps-4 py-3 text-muted">No. Rekam Medis</th>
                                 <th class="py-3 text-muted">Pasien</th>
                                 <th class="py-3 text-muted">Aksi</th>
                             </tr>
@@ -124,8 +125,9 @@
                         <tbody>
 
                             @forelse ($konsultasis->jadwal as $konsultasi)
-                                <tr>
+                                <tr class="fw-semibold">
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $konsultasi->pendaftaran->pasien->no_rm }}</td>
                                     <td>{{ $konsultasi->pendaftaran->pasien->nama_pasien }}</td>
                                     <td>
                                         <div class="d-flex gap-2">

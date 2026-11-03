@@ -66,61 +66,91 @@
 
                 <div class="card-body">
 
-                    @if (session('success'))
-                        <div class="alert alert-success mb-3 mt-2">
-                            <i class="fa-solid fa-check me-1"></i>
-                            {{ session('success') }}
-                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-                        </div>
-                    @endif
-
-                    <div class="mb-3 text-center">
+                    <div class="mb-5 text-center">
 
                         <img src="{{ asset('storage/' . $dokter->foto_dokter) }}" width="100" height="100"
                             class="shadow rounded-4">
 
                     </div>
 
-                    <div class="mb-3">
+                    <div class="row">
 
-                        <label class="fw-semibold ms-2 mb-1">Nama</label>
-                        <input type="text" class="form-control ms-3" value="{{ $dokter->nama_dokter }}" readonly>
+                        @if (session('success'))
+                            <div class="alert alert-success mb-3 mt-2">
+                                <i class="fa-solid fa-check me-1"></i>
+                                {{ session('success') }}
+                                <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                            </div>
+                        @endif
 
-                    </div>
+                        <div class="col-md-6">
 
+                            <div class="mb-3">
 
-                    <div class="mb-3">
+                                <label class="fw-semibold text-muted ms-2 mb-1">Nama</label>
+                                <input type="text" class="form-control ms-3" value="{{ $dokter->nama_dokter }}"
+                                    readonly>
 
-                        <label class="fw-semibold ms-2 mb-1">SIP</label>
-                        <input type="text" class="form-control ms-3" value="{{ $dokter->sip }}" readonly>
+                            </div>
 
-                    </div>
+                        </div>
 
-                    <div class="mb-3">
+                        <div class="col-md-6">
 
-                        <label class="fw-semibold ms-2 mb-1">Jenis Kelamin</label>
-                        <input type="text" class="form-control ms-3" value="{{ $dokter->jenis_kelamin }}" readonly>
+                            <div class="mb-3">
 
-                    </div>
+                                <label class="fw-semibold text-muted ms-2 mb-1">SIP</label>
+                                <input type="text" class="form-control ms-3" value="{{ $dokter->sip }}" readonly>
 
-                    <div class="mb-3">
+                            </div>
 
-                        <label class="fw-semibold ms-2 mb-1">Spesialis</label>
-                        <input type="text" class="form-control ms-3" value="{{ $dokter->spesialis }}" readonly>
+                        </div>
 
-                    </div>
+                        <div class="col-md-6">
 
-                    <div class="mb-3">
+                            <div class="mb-3">
 
-                        <label class="fw-semibold ms-2 mb-1">No. Handphone</label>
-                        <input type="number" class="form-control ms-3" value="{{ $dokter->no_hp }}" readonly>
+                                <label class="fw-semibold text-muted ms-2 mb-1">Jenis Kelamin</label>
+                                <input type="text" class="form-control ms-3" value="{{ $dokter->jenis_kelamin }}"
+                                    readonly>
 
-                    </div>
+                            </div>
 
-                    <div class="mb-4">
+                        </div>
 
-                        <label class="fw-semibold ms-2 mb-1">Email</label>
-                        <input type="email" class="form-control ms-3" value="{{ $dokter->email }}" readonly>
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="fw-semibold text-muted ms-2 mb-1">Spesialis</label>
+                                <input type="text" class="form-control ms-3" value="{{ $dokter->spesialis }}"
+                                    readonly>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="fw-semibold text-muted ms-2 mb-1">No. Handphone</label>
+                                <input type="number" class="form-control ms-3" value="{{ $dokter->no_hp }}" readonly>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mb-4">
+
+                                <label class="fw-semibold text-muted ms-2 mb-1">Email</label>
+                                <input type="email" class="form-control ms-3" value="{{ $dokter->email }}" readonly>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -134,9 +164,10 @@
                                 Edit Profile
                             </a>
 
-                            <a href="" class="btn btn-primary w-50 rounded-pill text-light shadow">
+                            <a href="{{ route('dokter.perantara') }}"
+                                class="btn btn-primary w-50 rounded-pill text-light shadow">
                                 <i class="fa-solid fa-pen-to-square"></i>
-                                Ubah Password
+                                Edit Akun
                             </a>
 
                         </div>

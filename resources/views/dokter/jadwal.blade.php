@@ -117,7 +117,7 @@
                         <tbody>
 
                             @forelse ($dokters->jadwal as $jadwal)
-                                <tr>
+                                <tr class="fw-semibold">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $jadwal->pendaftaran->pasien->nama_pasien }}</td>
                                     <td>{{ $jadwal->hari }}</td>

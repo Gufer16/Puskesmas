@@ -7,6 +7,7 @@ use App\Models\dokter;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class AkunDokterController extends Controller
@@ -58,5 +59,63 @@ class AkunDokterController extends Controller
         return redirect()
             ->route('dokter.akun')
             ->with('success', 'Profil berhasil diperbarui.');
+    }
+
+    public function perantara()
+    {
+        return view('dokter.perantara');
+    }
+
+    public function editUsername()
+    {
+        $user = Auth::user();
+
+        return view('dokter.editUsername', compact('user'));
+    }
+
+    public function updateUsername(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'username' => 'required|string|max:50|unique:users,username,' . $user->id,
+        ]);
+
+        $user->update([
+            'username' => $request->username,
+        ]);
+
+        return redirect()
+            ->route('dokter.akun')
+            ->with('success', 'Username Berhasil Diperbarui.');
+    }
+
+    public function editPassword()
+    {
+        return view('dokter.editPassword');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'password_lama' => 'required',
+            'password'      => 'required|min:6|confirmed',
+        ]);
+
+        if (Hash::check($request->password_lama, $user->password)) {
+            $user->update([
+                'password'  => $request->password,
+            ]);
+
+            return redirect()
+                ->route('dokter.akun')
+                ->with('success', 'Password Berhasil Diperbarui.');
+        }
+
+        return back()->withErrors([
+            'password_lama' => 'Password lama tidak sesuai.'
+        ]);
     }
 }
