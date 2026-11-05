@@ -17,6 +17,7 @@ use App\Http\Controllers\Dokter\AkunDokterController;
 use App\Http\Controllers\Dokter\DashboardDokterController;
 use App\Http\Controllers\Dokter\JadwalDokterController;
 use App\Http\Controllers\Dokter\KonsultasiDokterController;
+use App\Http\Controllers\Dokter\RiwayatKonsultasiController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -109,6 +110,11 @@ Route::middleware(['auth', 'dokter'])->group(function () {
     Route::get('/dokter/mulaiKonsultasi/{pendaftaran}', [KonsultasiDokterController::class, 'mulaiKonsultasi'])->name('mulaiKonsultasi');
 
     Route::post('/dokter/mulaiKonsultasi', [KonsultasiDokterController::class, 'mulaiKonsultasiProses'])->name('konsultasi.proses');
+
+    // ----- RIWAYAT KONSULTASI -----
+    Route::get('/dokter/riwayatKonsultasi', [RiwayatKonsultasiController::class, 'index'])->name('dokter.riwayatKonsultasi');
+
+    Route::get('/dokter/lihatRiwayat/{konsultasi}', [RiwayatKonsultasiController::class, 'lihatRiwayat'])->name('dokter.lihatRiwayat');
 
     // ----- AKUN -----
     Route::get('/dokter/akun', [AkunDokterController::class, 'index'])->name('dokter.akun');

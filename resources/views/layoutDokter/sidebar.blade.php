@@ -34,6 +34,11 @@
             <span>Konsultasi</span>
         </a>
 
+        <a href="{{ route('dokter.riwayatKonsultasi') }}" class="menu-item">
+            <i class="fa-solid fa-history"></i>
+            <span>Riwayat Konsultasi</span>
+        </a>
+
 
         <p class="menu-label mt-4">PROFILE</p>
 
