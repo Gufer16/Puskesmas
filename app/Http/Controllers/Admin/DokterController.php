@@ -51,12 +51,18 @@ class DokterController extends Controller
     {
         $request->validate([
             'nama_dokter'       => 'required|string|max:50',
-            'sip'               => 'required|numeric|max_digits:25',
+            'sip'               => 'required|numeric|max_digits:15',
             'jenis_kelamin'     => 'required',
             'spesialis'         => 'required|string|max:50',
-            'no_hp'             => 'required|numeric|max_digits:12',
+            'no_hp'             => 'required|numeric|min_digits:10|max_digits:12',
             'email'             => 'required',
-            'foto_dokter'       => 'required|image|mimes:png,jpg,jpeg,webp|max:2024',
+            'foto_dokter'       => [
+                'required',
+                'image',
+                'mimes:png,jpg,jpeg,webp',
+                'extensions:png,jpg,jpeg,webp',
+                'max:2024',
+            ],
         ]);
 
         dokter::create([

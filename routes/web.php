@@ -18,6 +18,9 @@ use App\Http\Controllers\Dokter\DashboardDokterController;
 use App\Http\Controllers\Dokter\JadwalDokterController;
 use App\Http\Controllers\Dokter\KonsultasiDokterController;
 use App\Http\Controllers\Dokter\RiwayatKonsultasiController;
+use App\Http\Controllers\Kasir\DashboardKasirController;
+use App\Http\Controllers\Kasir\DokterKasirController;
+use App\Http\Controllers\Kasir\PasienKasirController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -95,6 +98,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('/beranda', [BerandaController::class, 'beranda'])->name('beranda');
 
+// ----- DOKTER ------
+
 Route::middleware(['auth', 'dokter'])->group(function () {
 
     Route::get('/dokter/dashboard', [DashboardDokterController::class, 'dashboardDokter'])->name('dokter.dashboard');
@@ -132,4 +137,16 @@ Route::middleware(['auth', 'dokter'])->group(function () {
     Route::get('/dokter/editPassword', [AkunDokterController::class, 'editPassword'])->name('dokter.editPassword');
 
     Route::patch('/dokter/editPassword', [AkunDokterController::class, 'updatePassword'])->name('dokter.updatePassword');
+});
+
+// ----- KASIR ------
+Route::middleware(['auth', 'kasir'])->group(function () {
+
+    Route::get('/kasir/dashboard', [DashboardKasirController::class, 'index'])->name('kasir.dashboard');
+
+    // ----- PASIEN -----
+    Route::resource('/kasir/kasirPasien', PasienKasirController::class);
+
+    // ----- DPKTER -----
+    Route::resource('/kasir/kasirDokter', DokterKasirController::class);
 });

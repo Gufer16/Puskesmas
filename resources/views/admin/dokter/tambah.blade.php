@@ -81,6 +81,7 @@
 
                 @if ($errors->any())
                     <div class="alert alert-danger mb-2">
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
@@ -107,8 +108,8 @@
 
                         <div class="col-md-6">
                             <label class="form-label">Nomor Surat Izin Praktik (SIP)</label>
-                            <input type="text" name="sip" class="form-control"
-                                placeholder="Masukkan nama lengkap pasien">
+                            <input type="number" name="sip" class="form-control"
+                                placeholder="Masukan nomor SIP dokter">
                         </div>
 
                         <div class="col-md-6">
