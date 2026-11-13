@@ -33,7 +33,7 @@
             <span>Data Dokter</span>
         </a>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirPendaftaran.index') }}" class="menu-item">
             <i class="fa-solid fa-calendar-check"></i>
             <span>Pendaftaran</span>
         </a>

@@ -88,10 +88,22 @@ class PendaftaranController extends Controller
     public function update(Request $request, pendaftaran $pendaftaran)
     {
         $data = $request->validate([
-            'id_pasien'         => 'required|exists:pasiens,id',
-            'tanggal_daftar'    => 'required',
-            'no_antrian'        => ['required', Rule::unique('pendaftarans', 'no_antrian')->ignore($pendaftaran->id),],
-            'jenis_kunjungan'   => 'required|string|max:100',
+            'id_pasien' => 'required|exists:pasiens,id',
+
+            'tanggal_daftar' => 'required|date',
+
+            'no_antrian' => [
+                'required',
+                Rule::unique('pendaftarans', 'no_antrian')
+                    ->where(function ($query) use ($request) {
+                        $query->where('tanggal_daftar', $request->tanggal_daftar);
+                    })
+                    ->ignore($pendaftaran->id),
+            ],
+
+            'jenis_kunjungan' => 'required|string|max:100',
+        ], [
+            'no_antrian.unique' => 'Nomor antrean sudah digunakan.',
         ]);
 
         $pendaftaran->update($data);

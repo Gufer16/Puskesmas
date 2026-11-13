@@ -21,6 +21,7 @@ use App\Http\Controllers\Dokter\RiwayatKonsultasiController;
 use App\Http\Controllers\Kasir\DashboardKasirController;
 use App\Http\Controllers\Kasir\DokterKasirController;
 use App\Http\Controllers\Kasir\PasienKasirController;
+use App\Http\Controllers\Kasir\PendaftaranKasirController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -147,6 +148,11 @@ Route::middleware(['auth', 'kasir'])->group(function () {
     // ----- PASIEN -----
     Route::resource('/kasir/kasirPasien', PasienKasirController::class);
 
-    // ----- DPKTER -----
+    // ----- DOKTER -----
     Route::resource('/kasir/kasirDokter', DokterKasirController::class);
+
+    // ----- PENDAFTARAN -----
+    Route::resource('/kasir/kasirPendaftaran', PendaftaranKasirController::class);
 });
+
+Route::middleware(['auth', 'pengunjung'])->group(function () {});
