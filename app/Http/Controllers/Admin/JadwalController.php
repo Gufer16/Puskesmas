@@ -19,10 +19,10 @@ class JadwalController extends Controller
 
         $jadwals = jadwal::with('dokter', 'pendaftaran')
             ->when($cari, function ($query, $cari) {
-                $query->whereHas('dokters', function ($query) use ($cari) {
+                $query->whereHas('dokter', function ($query) use ($cari) {
                     $query->where('nama_dokter', 'like', "%{$cari}%");
                 })
-                    ->orWhereHas('pendaftarans.pasien', function ($query) use ($cari) {
+                    ->orWhereHas('pendaftaran.pasien', function ($query) use ($cari) {
                         $query->where('nama_pasien', 'like', "%{$cari}%");
                     });
             })->latest()->get();
@@ -58,14 +58,6 @@ class JadwalController extends Controller
         return redirect()
             ->route('jadwal.index')
             ->with('success', 'Jadwal Pasien Berhasil Ditambahkan.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**

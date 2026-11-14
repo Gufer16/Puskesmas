@@ -35,38 +35,15 @@ class KonsultasiController extends Controller
      */
     public function create()
     {
-        $pendaftarans = pendaftaran::all();
-        $dokters      = dokter::all();
-
-        return view('admin.konsultasi.tambah', compact('pendaftarans', 'dokters'));
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(string $string)
     {
-        $data = $request->validate([
-            'id_pendaftaran'        => 'required|exists:pendaftarans,id',
-            'id_dokter'             => 'required|exists:dokters,id',
-            'keluhan'               => 'required',
-            'riwayat_penyakit'      => 'required',
-            'riwayat_alergi'        => 'required',
-            'tekanan_darah'         => 'required',
-            'suhu'                  => 'required',
-            'bb'                    => 'required',
-            'tb'                    => 'required',
-            'diagnosa'              => 'required',
-            'tindakan'              => 'required',
-            'resep'                 => 'required',
-        ]);
-        $data['tanggal_periksa'] = today()->toDateString();
-
-        konsultasi::create($data);
-
-        return redirect()
-            ->route('konsultasi.index')
-            ->with('success', 'Data Konsultasi Berhasil Tersimpan.');
+        //
     }
 
     /**
@@ -82,51 +59,24 @@ class KonsultasiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(konsultasi $konsultasi)
+    public function edit(string $string)
     {
-        $pendaftarans = pendaftaran::all();
-        $dokters      = dokter::all();
-
-        return view('admin.konsultasi.edit', compact('konsultasi', 'pendaftarans', 'dokters'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, konsultasi $konsultasi)
+    public function update(Request $request, string $string)
     {
-        $data = $request->validate([
-            'id_pendaftaran'        => 'required|exists:pendaftarans,id',
-            'id_dokter'             => 'required|exists:dokters,id',
-            'keluhan'               => 'required',
-            'riwayat_penyakit'      => 'required',
-            'riwayat_alergi'        => 'required',
-            'tekanan_darah'         => 'required',
-            'suhu'                  => 'required',
-            'bb'                    => 'required',
-            'tb'                    => 'required',
-            'diagnosa'              => 'required',
-            'tindakan'              => 'required',
-            'resep'                 => 'required',
-            'tanggal_periksa'       => 'required',
-        ]);
-
-        $konsultasi->update($data);
-
-        return redirect()
-            ->route('konsultasi.index')
-            ->with('success', 'Data Konsultasi Berhasil Diperbarui.');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(konsultasi $konsultasi)
+    public function destroy(string $string)
     {
-        $konsultasi->delete();
-
-        return redirect()
-            ->route('konsultasi.index')
-            ->with('success', 'Data Konsultasi Berhasil Dihapus.');
+        //
     }
 }

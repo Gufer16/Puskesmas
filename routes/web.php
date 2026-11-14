@@ -18,8 +18,11 @@ use App\Http\Controllers\Dokter\DashboardDokterController;
 use App\Http\Controllers\Dokter\JadwalDokterController;
 use App\Http\Controllers\Dokter\KonsultasiDokterController;
 use App\Http\Controllers\Dokter\RiwayatKonsultasiController;
+use App\Http\Controllers\Kasir\BiayaKonsultasiKasirController;
 use App\Http\Controllers\Kasir\DashboardKasirController;
 use App\Http\Controllers\Kasir\DokterKasirController;
+use App\Http\Controllers\Kasir\JadwalKasirController;
+use App\Http\Controllers\Kasir\KonsultasiKasirController;
 use App\Http\Controllers\Kasir\PasienKasirController;
 use App\Http\Controllers\Kasir\PendaftaranKasirController;
 use App\Http\Controllers\Login\LoginController;
@@ -153,6 +156,16 @@ Route::middleware(['auth', 'kasir'])->group(function () {
 
     // ----- PENDAFTARAN -----
     Route::resource('/kasir/kasirPendaftaran', PendaftaranKasirController::class);
+
+    // ----- JADWAL -----
+    Route::resource('/kasir/kasirJadwal', JadwalKasirController::class);
+
+    // ----- KONSULTASI -----
+    Route::get('/kasir/konsultasi/index', [KonsultasiKasirController::class, 'index'])->name('kasirKonsultasi.index');
+    Route::get('/kasir/konsultasi/detail/{kasirKonsultasi}', [KonsultasiKasirController::class, 'show'])->name('kasirKonsultasi.show');
+
+    // ----- BIAYA KONSULTASI -----
+    Route::resource('/kasir/kasirBiayaKonsul', BiayaKonsultasiKasirController::class);
 });
 
 Route::middleware(['auth', 'pengunjung'])->group(function () {});

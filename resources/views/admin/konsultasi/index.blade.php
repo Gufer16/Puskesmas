@@ -58,11 +58,6 @@
                     </h5>
                 </div>
 
-                <a href="{{ route('konsultasi.create') }}" class="btn btn-primary btn-sm shadow rounded-3 px-3">
-                    <i class="fa-solid fa-plus me-1"></i>
-                    Tambah Konsultasi
-                </a>
-
             </div>
 
             {{-- Tabel Data Konsultasi --}}
@@ -146,31 +141,11 @@
                                     <td>{{ $konsultasi->diagnosa }}</td>
                                     <td>{{ $konsultasi->tindakan }}</td>
                                     <td>
-                                        <form action="{{ route('konsultasi.destroy', $konsultasi->id) }}"
-                                            method="POST">
-
-                                            <a href="{{ route('konsultasi.edit', $konsultasi->id) }}"
-                                                class="btn btn-sm btn-warning text-light me-1 rounded-3"
-                                                title="Edit Konsultasi">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </a>
-
-                                            <a href="{{ route('konsultasi.show', $konsultasi->id) }}"
-                                                class="btn btn-sm btn-success text-light me-1 rounded-3"
-                                                title="Cetak Konsultasi">
-                                                <i class="fa-solid fa-print"></i>
-                                            </a>
-
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-sm btn-danger rounded-3"
-                                                title="Hapus Konsultasi"
-                                                onclick="return confirm('Yakin ingin menghapus data konsultasi pasien ini?')">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-
-                                        </form>
+                                        <a href="{{ route('konsultasi.show', $konsultasi->id) }}"
+                                            class="btn btn-sm btn-success text-light me-1 rounded-3"
+                                            title="Cetak Konsultasi">
+                                            <i class="fa-solid fa-print"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @empty

@@ -38,17 +38,17 @@
             <span>Pendaftaran</span>
         </a>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirJadwal.index') }}" class="menu-item">
             <i class="fa-solid fa-calendar-days"></i>
             <span>Jadwal</span>
         </a>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirKonsultasi.index') }}" class="menu-item">
             <i class="fa-solid fa-list"></i>
             <span>Konsultasi</span>
         </a>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirBiayaKonsul.index') }}" class="menu-item">
             <i class="fa-solid fa-sack-dollar"></i>
             <span>Biaya Konsultasi</span>
         </a>

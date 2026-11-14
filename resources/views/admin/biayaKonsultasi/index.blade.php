@@ -58,11 +58,6 @@
                     </h5>
                 </div>
 
-                <a href="{{ route('biayaKonsultasi.create') }}" class="btn btn-primary btn-sm shadow rounded-3 px-3">
-                    <i class="fa-solid fa-plus me-1"></i>
-                    Tambah Biaya Konsultasi
-                </a>
-
             </div>
 
             {{-- Tabel Data Pasien --}}
@@ -149,31 +144,11 @@
                                     <td>{{ number_format($biayaKonsultasi->biaya_konsultasi, 0, ',', '.') }}</td>
                                     <td>{{ number_format($biayaKonsultasi->total_biaya, 0, ',', '.') }}</td>
                                     <td>
-                                        <form action="{{ route('biayaKonsultasi.destroy', $biayaKonsultasi->id) }}"
-                                            method="POST">
-
-                                            <a href="{{ route('biayaKonsultasi.edit', $biayaKonsultasi->id) }}"
-                                                class="btn btn-sm btn-warning text-light me-1 rounded-3"
-                                                title="Edit Biaya Konsultasi">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </a>
-
-                                            <a href="{{ route('biayaKonsultasi.show', $biayaKonsultasi->id) }}"
-                                                class="btn btn-sm btn-success text-light me-1 rounded-3"
-                                                title="Print Biaya Konsultasi">
-                                                <i class="fa-solid fa-print"></i>
-                                            </a>
-
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-sm btn-danger rounded-3"
-                                                title="Hapus Pasien"
-                                                onclick="return confirm('Yakin ingin menghapus data biaya konsultasi ini?')">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-
-                                        </form>
+                                        <a href="{{ route('biayaKonsultasi.show', $biayaKonsultasi->id) }}"
+                                            class="btn btn-sm btn-success text-light me-1 rounded-3"
+                                            title="Print Biaya Konsultasi">
+                                            <i class="fa-solid fa-print"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @empty
