@@ -18,13 +18,16 @@ use App\Http\Controllers\Dokter\DashboardDokterController;
 use App\Http\Controllers\Dokter\JadwalDokterController;
 use App\Http\Controllers\Dokter\KonsultasiDokterController;
 use App\Http\Controllers\Dokter\RiwayatKonsultasiController;
+use App\Http\Controllers\Kasir\AkunKasirController;
 use App\Http\Controllers\Kasir\BiayaKonsultasiKasirController;
 use App\Http\Controllers\Kasir\DashboardKasirController;
 use App\Http\Controllers\Kasir\DokterKasirController;
 use App\Http\Controllers\Kasir\JadwalKasirController;
 use App\Http\Controllers\Kasir\KonsultasiKasirController;
+use App\Http\Controllers\Kasir\ObatKasirController;
 use App\Http\Controllers\Kasir\PasienKasirController;
 use App\Http\Controllers\Kasir\PendaftaranKasirController;
+use App\Http\Controllers\Kasir\PenjualanObatKasirController;
 use App\Http\Controllers\Login\LoginController;
 use App\Models\dokter;
 use Illuminate\Support\Facades\Route;
@@ -166,6 +169,31 @@ Route::middleware(['auth', 'kasir'])->group(function () {
 
     // ----- BIAYA KONSULTASI -----
     Route::resource('/kasir/kasirBiayaKonsul', BiayaKonsultasiKasirController::class);
+
+    // ----- OBAT -----
+    Route::resource('/kasir/kasirObat', ObatKasirController::class);
+
+    Route::get('/kasir/obat/detail', [ObatKasirController::class, 'laporan'])->name('kasirObat.laporan');
+
+    // ----- TAMBAH STOK OBAT PROSES -----
+    Route::patch('/kasir/obat/{obat}/tambah-stok', [ObatKasirController::class, 'tambahStokProses'])
+        ->name('kasirObat.tambahStokProses');
+
+    // ----- PENJUALAN OBAT -----
+    Route::resource('/kasir/kasirPenjualanObat', PenjualanObatKasirController::class);
+
+    Route::get('/kasir/penjualanObat/detail', [PenjualanObatKasirController::class, 'laporan'])->name('kasirPenjualanObat.laporan');
+
+    // ----- AKUN -----
+    Route::get('/kasir/akun/index', [AkunKasirController::class, 'index'])->name('kasirAkun.index');
+
+    Route::get('/kasir/akun/editProfile/{user}', [AkunKasirController::class, 'edit'])->name('kasirAkun.edit');
+
+    Route::patch('/kasir/akun/editProfile/{user}', [AkunKasirController::class, 'update'])->name('kasirAkun.update');
+
+    Route::get('/kasir/akun/editPassword/{user}', [AkunKasirController::class, 'editPassword'])->name('kasirAkun.editPassword');
+
+    Route::patch('/kasir/akun/editPassword/{user}', [AkunKasirController::class, 'ubahPasswordProses'])->name('kasirAkun.updatePassword');
 });
 
 Route::middleware(['auth', 'pengunjung'])->group(function () {});

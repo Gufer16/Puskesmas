@@ -55,24 +55,19 @@
 
         <p class="menu-label mt-4">MANAJEMEN</p>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirObat.index') }}" class="menu-item">
             <i class="fa-solid fa-pills"></i>
             <span>Obat</span>
         </a>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirPenjualanObat.index') }}" class="menu-item">
             <i class="fa-solid fa-cart-plus"></i>
             <span>Penjualan Obat</span>
         </a>
 
-        <a href="" class="menu-item">
-            <i class="fa-solid fa-users"></i>
-            <span>Pengguna Sistem</span>
-        </a>
-
         <p class="menu-label mt-4">PROFILE</p>
 
-        <a href="" class="menu-item">
+        <a href="{{ route('kasirAkun.index') }}" class="menu-item">
             <i class="fa-solid fa-user-circle"></i>
             <span>Akun</span>
         </a>
