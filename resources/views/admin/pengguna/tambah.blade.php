@@ -128,8 +128,6 @@
                                 </option>
                                 <option value="admin">Admin</option>
                                 <option value="kasir">Kasir</option>
-                                <option value="dokter">Dokter</option>
-                                <option value="pengunjung">Pengunjung</option>
                             </select>
                         </div>
 

@@ -128,8 +128,6 @@
                                 <option value="kasir"{{ $pengguna->role == 'kasir' ? 'selected' : '' }}>Kasir</option>
                                 <option value="dokter"{{ $pengguna->role == 'dokter' ? 'selected' : '' }}>Dokter
                                 </option>
-                                <option value="pengunjung"{{ $pengguna->role == 'pengunjung' ? 'selected' : '' }}>
-                                    Pengunjung</option>
                             </select>
                         </div>
 

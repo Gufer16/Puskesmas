@@ -34,42 +34,14 @@ class LoginController extends Controller
                 return redirect()->route('admin.dashboard');
             } elseif ($user->role === 'dokter') {
                 return redirect()->route('dokter.dashboard');
-            } elseif ($user->role === 'kasir') {
-                return redirect()->route('kasir.dashboard');
             } else {
-                return redirect()->route('pengunjung.dashboard');
+                return redirect()->route('kasir.dashboard');
             }
         }
 
         return back()->withErrors([
             'username' => 'Username atau Password Salah.'
         ])->onlyInput('username');
-    }
-
-    public function register()
-    {
-        return view('login.register');
-    }
-
-    public function registerProses(Request $request)
-    {
-        $request->validate([
-            'nama'          => 'required|string',
-            'username'      => 'required|string|unique:users,username',
-            'password'      => 'required|min:6|confirmed',
-            'email'         => 'required|string',
-        ]);
-
-        User::create([
-            'nama'          => $request->nama,
-            'username'      => $request->username,
-            'password'      => $request->password,
-            'email'         => $request->email,
-        ]);
-
-        return redirect()
-            ->route('login')
-            ->with('success', 'Register Berhasil, Silahkan Login.');
     }
 
     public function logout(Request $request)

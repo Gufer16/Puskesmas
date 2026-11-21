@@ -155,13 +155,9 @@
                                             <span class="badge bg-success rounded-pill px-3 py-2">
                                                 <i class="fas fa-cash-register me-1"></i> Kasir
                                             </span>
-                                        @elseif ($pengguna->role == 'dokter')
+                                        @else
                                             <span class="badge bg-primary rounded-pill px-3 py-2">
                                                 <i class="fas fa-user-doctor me-1"></i> Dokter
-                                            </span>
-                                        @else
-                                            <span class="badge bg-secondary rounded-pill px-3 py-2">
-                                                <i class="fas fa-user me-1"></i> Pengunjung
                                             </span>
                                         @endif
                                     </td>

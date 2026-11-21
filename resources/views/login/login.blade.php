@@ -171,10 +171,6 @@
                         <label class="remember-me">
 
                         </label>
-
-                        <a href="{{ route('register') }}" class="forgot-password">
-                            Buat akun
-                        </a>
                     </div>
 
                     <!-- TOMBOL LOGIN -->
